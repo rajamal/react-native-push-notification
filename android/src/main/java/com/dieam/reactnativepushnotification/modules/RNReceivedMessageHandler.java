@@ -70,6 +70,10 @@ public class RNReceivedMessageHandler {
                 bundle.putString("color", data.optString("color", null));
             }
 
+            if (data.has("picture")) {
+                bundle.putString("largeIconUrl", data.optString("picture", null));
+            }
+
             final int badge = data.optInt("badge", -1);
             if (badge >= 0) {
                 ApplicationBadgeHelper.INSTANCE.setApplicationIconBadgeNumber(mFirebaseMessagingService, badge);
